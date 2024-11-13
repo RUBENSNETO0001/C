@@ -1,0 +1,23 @@
+Ponteiros
+
+- Declaração de variáveis: é um processo de alocação de memória de acordo com o tipo;
+- Declaração x atribuição
+int x; //Declaração com tipagem
+x = 10; //Atribuição
+
+- Ponteiro: 
+* Conceito inicial: é uma "variável" que pode ser atribuído o endereço de memória de outra variável declarada, ou seja, o ponteiro armzena um endereço de memória;
+
+----------------------------
+Vetores e Ponteiros
+A = [ a0 a1 a2 a3 a4 .. a(n-1)]
+a0 - conteúdo e endereço
+a1 - conteúdo e endereço
+
+cada ai é uma struct
+
+*ptr
+**ptr - ponteiro de ponteiro
+
+processo de desreferenciamento de memórica em dois níveis.
+vetores e matrizes 

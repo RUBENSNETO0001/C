@@ -1,0 +1,69 @@
+Ordenação e Busca
+
+Exemplo 01:
+
+A = [ a0 a1 a2 a3 a4 a5 a6 a7 a8 ]
+    [ -2 -1 0  1  2  3  4  4  5  ]
+
+número de elementos (n): 9
+limite inferior: a0 = -2
+limite superior: a8 = 5
+mediana: a4 = 2 (quantidade ímpar -> md = (n - 1)/2
+
+a4 = 2
+num 1
+
+
+Exemplo 02:
+
+A = [ a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13]
+    [ -2 -1 0  1  2  3  4  4  5  10 11  19  30  100]
+
+
+número de elementos: 14
+limite inferior: a0 = -2
+limite superior: a13 = 100
+"mediana = a6 e a7 -> md = (6 + 7)/2 = 13/2 = 6,5"
+Vamor tomar com base a6!!! *
+
+num = -1
+
+Nova análise de 2 partições:
+número de elementos: 7
+limite inferior: a0 = -2
+limite superior: a6 = 4
+mediana: md = a3 = 1
+
+=======================================================
+Revisão - Multiplicação de Matrizes
+
+A =	B =
+
+1 2	1 0				
+0 1	0 1
+
+Amxn . Bpxp -> só existirá multiplicação se n == p
+Cmxp
+
+A2X2 . B2X2 = C2x2
+
+c = 
+
+(1 * 1) + (2 * 0)		(1 * 0) + (2 * 1)
+(0 * 1) + (1 * 0)		(0 * 0) + (1 * 1)
+
+
+C =
+
+1 2
+0 1
+
+2292917
+
+
+
+
+
+
+
+

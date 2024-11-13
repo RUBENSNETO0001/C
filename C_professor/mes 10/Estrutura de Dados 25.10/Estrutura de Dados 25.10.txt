@@ -1,0 +1,80 @@
+- Implementação de bibliotecas;
+- Parametrização da main (int argc, char *argv[]);
+- Ponteiro;
+- Funções Recursivas
+
+Ex.: Fatorial:
+4! = 4 * 3 * 2 * 1 = 24
+5! = 5 * 4 * 3 * 2 * 1 = 120
+1! = 1
+0! = 1
+
+Implemento um algoritmo/programa que determine o fatorial de um número inteiro qualquer.
+1 - Sem recursividade
+2 - Com recursividade 
+
+===========================================================
+Teste de mesa do algoritmo com uso de recursividade
+
+1I:
+
+linha 6) int n = 5
+linha 7) resultado = 1
+linha 11)
+return 5 * fatNum(4)
+Retorno: return 5 * 24 = 120
+
+2I:
+
+linha 6) int n = 4
+linha 7) resultado = 1
+linha 11)
+return 4 * fatNum(3)
+Retorno: return 4 * 6 = 24
+
+3I:
+
+linha 6) int n = 3
+linha 7) resultado = 1
+linha 11)
+return 3 * fatNum(2)
+Retorno: return 3 * 2 = 6
+
+4I:
+
+linha 6) int n = 2
+linha 7) resultado = 1
+linha 11)
+
+return 2 * fatNum(1)
+Retorno: return 2 * 1 = 2
+
+5I:
+
+linha 6) int n = 1
+linha 7) resultado = 1
+linha 8) return 1;
+
+===========================================================
+Exemplo 02:
+Desenvolva um algoritmo/programa que determine a Série de Fibonacci até um número n.
+
+Série de Fibonacci:  1, 1, 2, 3, 5, 8, 13, 21, 34, 55, ...
+		    T1, T2 NT
+			T1 T2
+
+	 	     0, 1, 1
+OBSERVAÇÃO: 0 não faz parte da Série! Será utilizado apenas para fins de implemento do algoritmo!
+  			
+Exemplo 03:
+Desenvolva um algoritmo/programa que, com base no valor da posição, determine um número da Série de Fibonacci. Utilize recursividade. 
+
+
+
+
+
+
+
+
+
+

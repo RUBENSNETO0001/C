@@ -1,0 +1,85 @@
+1. Busca em vetores
+2. Busca em matrizes (matriz -> vetor)
+
+- Analisar uma estrutura ordenada e indexada de maneira ordenada;
+
+Ex. 	A = [a0 a1 a2 a3]
+	A = [10 9  11 -1]
+
+- 1ª ação para realizar uma busca: ordenação do elementos. Considerando que a indexação já é ordenada.
+
+- Busca sequencial -> aparentemente tem baixa eficiência;
+
+- Busca binária: divide a estrutura em duas partes com simetria de cardinalidade;
+
+- Posição central é definida pela mediana;
+- Md = (p0 + pn) / 2
+
+Ex.: Calculando md com base em index:
+
+* Quando n é par:
+n = 8
+Matemática: Md = (1 + 8)/2 => Md = 4,5 => p4 e p5
+Computação/Informática: Md = (0 + 7)/2 => Md = 3,5 => p3 e p4
+
+* Quando n é ímpar:
+n = 7
+Matemática: Md = (1 + 7)/2 => Md = 4 => p4
+Computação/Informática: Md = (0 + 6)/2 => Md = 3 => p3
+
+- Limites de um intervalo
+* Limite inferior e Limite superior
+* Caso mais genérico:
+Limite inferior - index: 0
+Limite superior - index: n - 1, n = quantidade de elementos 
+Md = (0 + (n-1))/2 => Md = (n - 1)/2
+
+- Exemplo: 	A = [a0 a1 a2 a3]
+		A = [1  3  4  9 ]
+
+n = 4
+Limite inferior - index: 0 (limite esquerdo máximo: da md)
+Limite superior - index: 3 (4 - 1) (limite direito máximo de md)
+
+esquerda = 0
+direita = 3
+
+num para busca = 4
+- Md = 3/2 = 1,5 - Md = 1 (trucamento)
+
+p1 = 3
+
+num > ou < que p1? (4 > 3) - T ou (4 < 3) - F
+
+esquerda = md + 1 = 2
+direita = 3
+
+
+Ex.: 	A = 	[a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10]
+	A = 	[-1 1  2  3  6  7  8  9  13 20 50 ]
+
+num = 20
+lInferior: a0 (esquerda)
+lsuperior: a10 (direita)
+md index = 5 => md = 7
+if (A[medio] < num) ===> if (7 < 20)
+lsinferior (esquerda) = md index
+
+A1 [a0 a1 a2 a3 a4] e A2 = [a6 a7 a8 a9 a10]
+
+em A1:
+lInferior: a0 (esquerda)
+lsuperior: a4 (direita)
+
+em A2:
+lInferior: a6 (esquerda)
+lsuperior: a10 (direita)
+
+Ex.:
+n = 10 
+md index = (0 + 9)/2 => md index = 4,5 => md index = 4
+
+==================================================================
+Exemplo 02: Um comércio vende n itens. Cada item possui uma quantidade comercializada e um preço unitário. Implemente um algoritmo que determine: o faturamento associado de cada item, o faturamento geral e que imprime informações de um item de acordo com um código de cadastro.
+==================================================================
+ 

@@ -1,0 +1,34 @@
+- Tipos primitivos;
+- Tipos de referência;
+
+- Referência de memória;
+- Alocação dinâmica de memória - em tempo de execução;
+
+============
+struct
+
+struct pessoa (nome, idade, peso); 21/10
+estrutura populacao - composta de pessoas
+
+- Podemos utilizar uma struct criada como um tipo de referência;
+
+Pessoa 1
+nome: Breno Silveira
+idade: 43
+peso: 90
+
+Pessoa 2
+nome: Greyck Paiva
+idade: 23
+peso: 73
+
+Pessoa 3
+nome: Sara Katryne
+idade: 23
+peso: 55
+
+Observações:
+1 - Desagregar blocos em funções e procedimentos
+cadastrar(), exibirCadastro() - find, listarCadstros() - all, alterarCadastro(), excluirCadastro()
+2 - Criar um menu
+3 - Organizar as funções em um arquivo
