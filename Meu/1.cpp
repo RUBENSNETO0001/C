@@ -8,6 +8,20 @@ void clear(){
 	system("cls");
 }
 
+//Estrutura Pessoa
+struct Pessoa {
+	char nome[80];
+	int idade;
+	float peso;
+};//Fim de Pessoa
+
+//Estrutura pop(população)
+struct Pop {
+	struct Pessoa *pessoas; //vetor -> "aproximadamente" um array
+	int quant_pessoas;	
+};//Fim de Pop
+
+
 int menu(){
 	printf("\n\n\t\tMenu\n");
 	int i, q = 60;
@@ -30,6 +44,8 @@ int menu(){
 }
 
 void cadastrarAluno(){
+	struct Aluno aluno;
+	printf("\n\n\t\tCadastrar Novo Aluno");
 	
 }
 void listaraluno(){
