@@ -1,0 +1,54 @@
+- Estruturas homogêneas de dados: vetores e matrizes;
+- Estruturas heterogêneas de dados: struct;
+
+* Para manipular várias structs -> carregando structs em vetores e matrizes;
+
+* Tipos primitivos -> tipos de refência;
+
+* Lista encadeada - encadeamento via ponteiros;
+
+* Posso ter duas funções com o mesmo nome?
+Qual a diferença entre nome e assinatura de uma função?
+
+int somaFibonacci (int n) {
+   ...
+   return soma;
+}
+
+int somaFibonacci () {
+   ...
+   return soma;
+}
+
+- Comentar sobre string.h depois;
+
+
+==============================
+
+int soma (int x, int y) {
+   return x + y; //realizando nova atribuição em x ou y? Não
+}
+
+int calc (int x) {
+   int x1 = x;
+   ...
+   x1++; //realizando nova atribuilção ou alteração em x? sim	
+   ...
+}
+
+===============================
+Exemplo de Lista Encadeada
+
+R4 -> R3 -> R2 -> R1 -> NULL
+
+Removendo R2
+
+pe = R4
+ant = NULL
+
+I1:
+
+
+
+
+
