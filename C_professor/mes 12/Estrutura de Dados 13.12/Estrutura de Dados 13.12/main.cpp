@@ -74,7 +74,7 @@ int main(int argc, char* argv[]) { //Início da main()
                 scanf("%d", &id);
                 lista = removerElemento(lista, id);
                 printf("\n\n\nCaso estivesse na lista, o registro foi removido com sucesso!");
-                //E se quisermos verificar se existe na lista ou não?
+                //E se quisermos verificar se o registro existe na lista ou não?
                 clear();
                 break;
 

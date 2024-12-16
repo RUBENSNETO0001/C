@@ -1,6 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+//Código incompleto e não revisado!!!
+//Para realizar alterações no código, inserir as bibliotecas
 
 // Struct - lista encadeada pessoa
 struct pessoa {
@@ -22,7 +21,7 @@ Pessoa* criarLista() {
 Pessoa* inserirLista(Pessoa* p, int novoId, char *novoNome, float novoPeso, int novaIdade) {
     Pessoa* novo = (Pessoa*)malloc(sizeof(Pessoa));
     if (novo == NULL) {
-        printf("Erro ao alocar memória.\n");
+        printf("Erro ao alocar memória! Não será possível inserir novo elemento na lista!\n");
         exit(1);
     }
     novo->id = novoId;
@@ -58,7 +57,7 @@ Pessoa* buscaElemento(Pessoa* p, int codBusca) {
 
 // Função listaVazia()
 int listaVazia(Pessoa* p) {
-    return p == NULL;
+    return p == NULL; //Verdadeiro ou falso direto
 } // Fim da listaVazia()
 
 // Função removerElemento()
@@ -108,3 +107,13 @@ int compararListas(Pessoa* p1, Pessoa* p2) {
     }
     return pe1 == pe2; // NULL == NULL
 } // Fim da função compararListas()
+
+//1 - Função para verificar repetições de id na lista - somente de id;
+//2 - (Mais desafiadora) Função para comparar dois registros com base em um campo informado 
+//pelo usuário - Verificar se são dois registros iguais
+//3 - Função de ordenação da lista com base no id - crecente ou decrescente???
+//4 - Função de busca binária após ordenação com base no id;
+//5 - Montar a estrutura de cada registro com id auto increment;
+//6 - Função para alterar campos de um registro (busca) na lista - editar
+//7 - Sistema para n listas
+//Grupo com até 04 componentes
