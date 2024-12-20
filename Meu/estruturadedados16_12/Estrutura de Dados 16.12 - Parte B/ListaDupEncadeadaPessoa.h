@@ -18,6 +18,7 @@ Pessoa* criarLista() {
 	return NULL;
 }//Fim da fun��o criarLista()
 
+
 //Fun��o criarNo() - apenas cria um novo n�
 Pessoa* criarNo(int id, char* nome, int idade, float peso) {
 	Pessoa* novaPessoa = (Pessoa*)malloc(sizeof(Pessoa));
@@ -39,6 +40,7 @@ int listaVazia(Pessoa* lista) {
 	return lista == NULL;
 }//Fim da fun��o listaVazia()
 
+// 1
 //Fun��o inserirInicio() - insere elemento no in�cio da lista duplamente encadeada
 Pessoa* inserirInicio(Pessoa* lista, int id, char* nome, int idade, float peso) {
 	Pessoa* novaPessoa = criarNo(id, nome, idade, peso);
@@ -48,6 +50,8 @@ Pessoa* inserirInicio(Pessoa* lista, int id, char* nome, int idade, float peso) 
 	}
 	return novaPessoa;
 }//Fim da fun��o inserirInicio()
+
+// 2
 Pessoa* inserirMeio(Pessoa* lista, int id, char* nome, int idade, float peso){
 	Pessoa* novaPessoa = criarNo(id, nome, idade, peso);
 
@@ -66,6 +70,8 @@ Pessoa* inserirMeio(Pessoa* lista, int id, char* nome, int idade, float peso){
 
 	return lista;
 }
+
+// 3
 //Fun��o inserirFim()
 Pessoa* inserirFim(Pessoa* lista, int id, char* nome, int idade, float peso) {
 	Pessoa* novaPessoa = criarNo(id, nome, idade, peso);
@@ -82,6 +88,8 @@ Pessoa* inserirFim(Pessoa* lista, int id, char* nome, int idade, float peso) {
 }//Fim da fun��o inserirFim()
 
 //Procedimento imprimirListaDireta() - ordem direta
+
+// 4
 void imprimirListaDireta(Pessoa* lista) {
 	if (listaVazia(lista)) {
 		printf ("\n\n\nA lista est� vazia!");
@@ -96,6 +104,7 @@ void imprimirListaDireta(Pessoa* lista) {
 	}
 }//Fim do procedimento imprimirListaDireta() 
 
+// 5
 //Procedimento imprimirListaInversa() - ordem inversa
 void imprimirListaInversa(Pessoa* lista) {
 	if (listaVazia(lista)) {
@@ -114,7 +123,7 @@ void imprimirListaInversa(Pessoa* lista) {
 		aux = aux->anterior;
 	}
 }//Fim do procedimento imprimirListaInversa()
-
+// 6
 //Fun��o buscarPorId() - Supondo que n�o exista repeti��o de id
 Pessoa* buscarPorId(Pessoa* lista, int idBusca) {
 	Pessoa* aux= lista;
@@ -126,6 +135,7 @@ Pessoa* buscarPorId(Pessoa* lista, int idBusca) {
 	return NULL;
 }//Fim da fun��o buscarPorId()
 
+// 7
 //Fun��o removerPorId()
 Pessoa* removerPorId(Pessoa* lista, int id) {
 	Pessoa* aux = buscarPorId(lista, id);
@@ -150,6 +160,7 @@ Pessoa* removerPorId(Pessoa* lista, int id) {
 	return lista;
 }//Fim da fun��o buscarPorId()
 
+// 8
 //Fun��o liberarLista()
 Pessoa* liberarLista(Pessoa* lista) {
 	Pessoa* aux = lista;
