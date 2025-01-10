@@ -97,4 +97,17 @@ void exibirFila(Fila* fila) {
 	}
 }//Fim do procedimento exibirFila()
 
+//Procedimento de busca na fila
+void buscarnaFila(Fila* fila){
+	if(filaVazia(fila)){
+		printf("\n\nA fila está vazia!!");
+		return;
+	}
+	no* fila->frente = fila->tras;
+	no* fila->tras = Aluno aluno;
+	
+	return aluno;
+}//Procedimento de busca na fila
+
+
 
