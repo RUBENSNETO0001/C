@@ -23,10 +23,14 @@ int main (int argc, char *argv[]) {
 				break;
 			
 			case 2: //Empilhar
+			int qtd;
 			//deixa a main mais limpa vou fazer uma função de vai ser inserida no pilha.h para ajuda
-				Livro inforLivro = carregadorLivro();
-				
-				empilhar(&pilhaLivros, inforLivro);
+			// fqzer um menu aonde a ciclo se repete diversas vezes aonde a forma de ciclo seje escolhida sobre o usuario
+			printf("\n\nQuantidade de livro a ser colocado");
+			scanf("%d", &qtd);
+			for(i = 0; i <= qtd; i++){
+				inforLivro = carregadorLivro();
+				empilhar(&pilhaLivros[i], inforLivro);
 				system("cls");
 				printf("\n\nLivro inserido");
 				system("Pause");
@@ -35,17 +39,18 @@ int main (int argc, char *argv[]) {
 			case 3: //Desempilhar
 				system("cls");
 				printf("\n\n\tVocê escolheu a função desemmpilhar");
-				desempilhar(p);
+				desempilhar(&pilhaLivro);
 				system("Pause");
 				system("cls");
 				break;
 			
 			case 4: //Exibir Pilhar
-				printf("\n\n\tVocê escolheu a função Exibir Pilha");
-				exibirPilha(p);
+				printf("\n\n\tVocê escolheu a função Exibir Pilha\n\n");
+				exibirPilha(&pilhaLivro);
 				break;
 				
 			case 5: //Verificar - Pilha Cheia
+				
 				break;
 				
 			case 6: //Verificar - Pilha Vazia

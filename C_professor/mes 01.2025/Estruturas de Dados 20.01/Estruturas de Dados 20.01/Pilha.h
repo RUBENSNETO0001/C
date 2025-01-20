@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <locale.h>
-#include <stdlib.h>
 
 //A capacidade da pilha será de 100 unidades
 #define MAX 100
