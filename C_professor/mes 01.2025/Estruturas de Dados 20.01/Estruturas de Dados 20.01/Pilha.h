@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
 //A capacidade da pilha será de 100 unidades
 #define MAX 100
 
@@ -6,7 +10,7 @@ typedef struct {
 	int codLivro;
 	char nome[100];
 	char issn[10];
-	char autor[10];
+	char autor[30];
 	int quantPaginas;
 	float preco;
 } Livro;//Fim da struct Livro
@@ -80,37 +84,41 @@ void exibirPilha (Pilha *p) {
 	printf ("\n\n\tLivros na Pilha: ");
 	for (int i = p->topo; i >= 0; i--) {
 		printf ("\n\n\n\nCódigo: %d.", p->livros[i].codLivro);
-		printf ("\n\nNome: %s.", p->livros[i].nome);
-		printf ("\n\nISSN: %s.", p->livros[i].issn);
-		printf ("\n\nAutor: %s.", p->livros[i].autor);
-		printf ("\n\nQuantidade de Páginas: %d.", p->livros[i].quantPaginas);
-		printf ("\n\nPreço atual: R$ %.2f.", p->livros[i].preco);
+		printf ("\n\nNome: %s", p->livros[i].nome);
+		printf ("\n\nISSN: %s", p->livros[i].issn);
+		printf ("\n\nAutor: %s", p->livros[i].autor);
+		printf ("\n\nQuantidade de Páginas: %d", p->livros[i].quantPaginas);
+		printf ("\n\nPreço atual: R$ %.2f", p->livros[i].preco);
 	}
 }//Fim do procedimento exibirPilha()
+
+//Função carregarLivro()
+Livro carregarLivro(void) {
+	Livro l;
+	printf ("\n\n\tCadastro de Livro - Empilhamento");
+	printf ("\n\n\nInforme o código do livro: ");
+	scanf ("%d", &l.codLivro);
+	fflush(stdin);
+	printf ("\n\nInforme o nome do livro: ");
+	fgets(l.nome, MAX, stdin);
+	fflush(stdin);
+	printf ("\n\nInforme o ISSN do livro: ");
+	fgets(l.issn, 10, stdin);
+	fflush(stdin);
+	printf ("\n\nInforme o autor do livro: ");
+	fgets(l.autor, 30, stdin);
+	fflush(stdin);
+	printf ("\n\nInforme a quantidade de páginas do livro: ");
+	scanf ("%d", &l.quantPaginas);
+	printf ("\n\nInforme o preço atual (R$) do livro: ");
+	scanf ("%f", &l.preco);
+	return l;
+}//Fim da função carregarLivro
 
 //Função buscarPilha()
 
 //Função compararElementos() - com base no código
 
-Livro carregadorLivro(){
-	system("cls");
-	printf("\n\n\tVocê escolheu a função Empilhar e cadastrar");
-	printf("\n\nMe informe o codigo do livro: ");
-	scanf("%d", &l.codLivro);
-	fflush(stdin);
-	printf("\n\nMe informe o nome do livro: ");
-	fgets(l.nome, max, stdin);
-	printf("\n\nMe informe o issn do livro: ");
-	fflush(stdin);
-	fgets(l.issn, 10, stdin);
-	printf("\n\nMe informe o nome do autor do livro: ");
-	fflush(stdin);
-	fgets(l.autor, 10, stdin);
-	printf("\n\nMe informe o codigo do livro: ");
-	scanf("%d", &l.quantPaginas);
-	printf("\n\nMe informe o preço do livro: ");
-	scanf("%f", &l.preco);
-	return l;
-}
+
 
 

@@ -8,41 +8,36 @@
 int main (int argc, char *argv[]) {
 	system ("cls");
 	setlocale (LC_ALL, "Portuguese");
-	Livro inforLivro;
-	Pilha pilhaLivro;
-	Pilha *p;
-	
 	int controle = 1, op;
+	Livro livro1, livro2;
+	Pilha pilhaLivros;
 	do { //início do-while()
 		op = menu();
 		switch (op) {//início do switch()
 			case 1: //Criar Pilha
-				system("cls");
-				inicializarPilha(&pilhaLivro);
-				printf("\n\nPilha inicializada");
+				inicializarPilha(&pilhaLivros);
+				printf ("\n\n\nPilha inicializada com sucesso!");
 				break;
 			
 			case 2: //Empilhar
-			//deixa a main mais limpa vou fazer uma função de vai ser inserida no pilha.h para ajuda
-				Livro inforLivro = carregadorLivro();
-				
-				empilhar(&pilhaLivros, inforLivro);
-				system("cls");
-				printf("\n\nLivro inserido");
-				system("Pause");
+				//Criar um laço ou algo semelhante - alterar código - ?
+				//Verificar se a pilha já foi inicializada - ?
+				clear();
+				livro1 = carregarLivro(); //Um só
+				livro2 = carregarLivro();
+				//Verificar antes se a pilha está cheia - ?
+				empilhar(&pilhaLivros, livro1);
+				empilhar(&pilhaLivros, livro2);
+				printf ("\n\n\nLivro empilhado com sucesso!");
 				break;
-
+			
 			case 3: //Desempilhar
-				system("cls");
-				printf("\n\n\tVocê escolheu a função desemmpilhar");
-				desempilhar(p);
-				system("Pause");
-				system("cls");
+				//Situação de pilha vazia - ?
+				desempilhar(&pilhaLivros);
 				break;
 			
 			case 4: //Exibir Pilhar
-				printf("\n\n\tVocê escolheu a função Exibir Pilha");
-				exibirPilha(p);
+				exibirPilha(&pilhaLivros);				
 				break;
 				
 			case 5: //Verificar - Pilha Cheia
@@ -60,6 +55,7 @@ int main (int argc, char *argv[]) {
 			default:
 				printf ("\n\n\nInforme uma opção válida");
 		} //Fim do switch()
+		clear();
 	} while (controle != 0); //fim do-while()
 	
 	printf ("\n\nObrigado por utilizar nosso programa!\n\n");

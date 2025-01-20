@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
 //A capacidade da pilha será de 100 unidades
 #define MAX 100
 
@@ -92,25 +96,6 @@ void exibirPilha (Pilha *p) {
 
 //Função compararElementos() - com base no código
 
-Livro carregadorLivro(){
-	system("cls");
-	printf("\n\n\tVocê escolheu a função Empilhar e cadastrar");
-	printf("\n\nMe informe o codigo do livro: ");
-	scanf("%d", &l.codLivro);
-	fflush(stdin);
-	printf("\n\nMe informe o nome do livro: ");
-	fgets(l.nome, max, stdin);
-	printf("\n\nMe informe o issn do livro: ");
-	fflush(stdin);
-	fgets(l.issn, 10, stdin);
-	printf("\n\nMe informe o nome do autor do livro: ");
-	fflush(stdin);
-	fgets(l.autor, 10, stdin);
-	printf("\n\nMe informe o codigo do livro: ");
-	scanf("%d", &l.quantPaginas);
-	printf("\n\nMe informe o preço do livro: ");
-	scanf("%f", &l.preco);
-	return l;
-}
+
 
 
