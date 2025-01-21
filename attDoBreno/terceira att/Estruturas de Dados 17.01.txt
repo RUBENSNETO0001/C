@@ -1,0 +1,14 @@
+* Fila:
+- Enfileirar;
+- Primeiro elemento que entra � o primeiro elemento que sai;
+- �ltimo elemento que entra � o �ltimo elemento que sai;
+- FIFO
+
+* Pilha
+- Empilhar;
+- Pilha tem base (primeiro elementro que entrou) e topo (�ltimo elemento que entrou);
+- Primeiro elemento que entra � o �ltimo elemento que sai;
+- �ltimo elemento que entre � o primeiro elemento que sai;
+- LIFO;
+
+fazer a main
