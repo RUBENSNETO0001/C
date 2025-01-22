@@ -7,37 +7,37 @@ typedef struct {
 	int codCurso;
 	char tipoCurso[MAX];
 	int idade;
-	float coefMediaGeral; //Média geral de todas as notas
+	float coefMediaGeral; //MÃ©dia geral de todas as notas
 } Aluno; //Fim da estrutura Aluno
 
 //Estrutura No da Fila
 typedef struct No {
 	Aluno aluno;
-	struct No* prox; //Próximo No da fila
+	struct No* prox; //PrÃ³ximo No da fila
 } No; //Fim da estrutura No
 
 //Estrutura da Fila
 typedef struct {
 	No* frente; //primeiro
-	No* tras; //último
+	No* tras; //Ãºltimo
 } Fila;//Fim da estrutura Fila
 
 //Procedimento inicializarFila()
 void inicializarFila(Fila* fila) {
 	fila->frente = NULL; //primeiro
-	fila->tras = NULL; //último
+	fila->tras = NULL; //Ãºltimo
 }//Fim do procedimento inicializarFila()
 
-//Função filaVazia()
+//FunÃ§Ã£o filaVazia()
 int filaVazia (Fila* fila) {
 	return fila->frente == NULL;
-}//Fim da função filaVazia()
+}//Fim da funÃ§Ã£o filaVazia()
 
 //Procedimento enfileirar()
 void enfileirar (Fila* fila, Aluno aluno) {
 	No* novoNo = (No*) malloc(sizeof(No));
 	if (novoNo == NULL) {
-		printf ("\n\n\nErro de alocação de memória!\n\n");
+		printf ("\n\n\nErro de alocaÃ§Ã£o de memÃ³ria!\n\n");
 		exit(1);
 	}
 	novoNo->aluno = aluno;
@@ -49,18 +49,18 @@ void enfileirar (Fila* fila, Aluno aluno) {
 		fila->tras->prox = novoNo;
 	}
 	
-	fila->tras = novoNo; //último
+	fila->tras = novoNo; //Ãºltimo
 	printf ("\n\n\nNovo aluno enfileirado com sucesso!\n\n");
 }//Fim do procedimento enfileirar()
 
-//Função desenfileirar()
+//FunÃ§Ã£o desenfileirar()
 Aluno desenfileirar (Fila* fila) {
 	if (filaVazia(fila)) {
-		printf ("\n\n\nA fila está vazia!\n\n");
+		printf ("\n\n\nA fila estÃ¡ vazia!\n\n");
 		exit(1);
 	}
 	
-	No* temp = fila->frente; //Endereço do primeiro na fila
+	No* temp = fila->frente; //EndereÃ§o do primeiro na fila
 	Aluno alunoRemovido = temp->aluno; //Dados do primeiro - struct
 	fila->frente = temp->prox;
 	
@@ -70,27 +70,53 @@ Aluno desenfileirar (Fila* fila) {
 	
 	free(temp);
 	return alunoRemovido;		
-}//Fim da função desenfileirar()
+}//Fim da funÃ§Ã£o desenfileirar()
 
 //Procedimento exibirFila()
 void exibirFila(Fila* fila) {
 	if (filaVazia(fila)) {
-		printf ("\n\n\nA fila está vazia!\n\n");
+		printf ("\n\n\nA fila estÃ¡ vazia!\n\n");
 		return;
 	}
 	
 	No* atual = fila->frente;
-	printf ("\n\n\n\tRelatório da Fila");
+	printf ("\n\n\n\tRelatÃ³rio da Fila");
 	while (atual != NULL) {
 		Aluno alunoAtual = atual->aluno;
 		printf ("\n\n\n\nNome do aluno: %s.", alunoAtual.nome);
-		printf ("\n\nNúmero da matrícula: %d.", alunoAtual.matricula);
-		printf ("\n\nCódigo do curso: %d.", alunoAtual.codCurso);
+		printf ("\n\nNÃºmero da matrÃ­cula: %d.", alunoAtual.matricula);
+		printf ("\n\nCÃ³digo do curso: %d.", alunoAtual.codCurso);
 		printf ("\n\nTipo do curso: %s.", alunoAtual.tipoCurso);
 		printf ("\n\nIdade: %d.", alunoAtual.idade);
-		printf ("\n\nMédia geral de notas: %.2f.", alunoAtual.coefMediaGeral);
+		printf ("\n\nMÃ©dia geral de notas: %.2f.", alunoAtual.coefMediaGeral);
 		atual = atual->prox;
 	}
 }//Fim do procedimento exibirFila()
 
-
+//Rubens
+//Procedimento buscar na Fila
+void buscarnaFila(Fila *fila){
+	if(filaVazia(fila)){
+		printf("\n\n\nA fila esta vazia!!");
+		return;
+	}
+	No* buscar = fila -> frente; //EndereÃ§o do primeiro na fila
+	Aluno alunobuscar = buscar -> aluno; //Dados do primeiro - struct
+	fila-> frente = buscar -> prox;
+	
+	if(buscar == NULL){
+		printf("\n\na PosiÃ§Ã£o nÃ£o foi encontrada!!");
+		return;
+	}
+	printf("\n\nBuscar feita!!");
+	while(buscar != NULL){
+		Aluno alunoBusca = buscar->aluno;
+		printf ("\n\n\n\nNome do aluno: %s.", buscar->aluno.nome);
+		printf ("\n\nNÃºmero da matrÃ­cula: %d.", buscar->aluno.matricula);
+		printf ("\n\nCÃ³digo do curso: %d.", buscar->aluno.codCurso);
+		printf ("\n\nTipo do curso: %s.", buscar->aluno.tipoCurso);
+		printf ("\n\nIdade: %d.", buscar->aluno.idade);
+		printf ("\n\nMÃ©dia geral de notas: %.2f.", buscar->aluno.coefMediaGeral);
+		return;
+	}
+}//Procedimento buscar na Fila
