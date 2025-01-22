@@ -67,13 +67,14 @@ int main (int argc, char* argv[]) {
 				break;
 			case 4:
 				system("cls");
-				int buscar;
-				printf("\n\n\nOpção Buscar Fila de Cadastros de Alunos");
+				int posicao;
+				printf("\n\n\nOpção: Buscar na Fila de Cadastros de Alunos\n");
 				fflush(stdin);
-				printf("\n\nQual e a posição da fila que vc que vê: ");
-				scanf("%d", buscar);
-				buscar = buscarnaFila(&fila);
-				clear();
+				printf("\n\nQual é a posição da fila que você deseja ver? ");
+				scanf("%d", &posicao); // Corrigido para usar &
+				
+				buscarnaFila(&fila, posicao); // Passa a posição para a função buscarnaFila
+				system("cls"); // Limpa a tela novamente (se necessário)
 				break;
 			
 			case 0:
