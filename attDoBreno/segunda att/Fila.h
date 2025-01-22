@@ -95,22 +95,14 @@ void exibirFila(Fila* fila) {
 
 //Rubens
 //Procedimento buscar na Fila
-void buscarnaFila(Fila *fila){
+void buscarnaFila(Fila *fila, int buscar){
 	if(filaVazia(fila)){
 		printf("\n\n\nA fila esta vazia!!");
 		return;
 	}
-	No* buscar = fila -> frente; //Endereço do primeiro na fila
-	Aluno alunobuscar = buscar -> aluno; //Dados do primeiro - struct
-	fila-> frente = buscar -> prox;
-	
-	if(buscar == NULL){
-		printf("\n\na Posição não foi encontrada!!");
-		return;
-	}
-	printf("\n\nBuscar feita!!");
+	No *buscar = fila->frente; // Ponteiro para percorrer a fila
+	printf("\n\nExibindo os alunos na fila:\n");
 	while(buscar != NULL){
-		Aluno alunoBusca = buscar->aluno;
 		printf ("\n\n\n\nNome do aluno: %s.", buscar->aluno.nome);
 		printf ("\n\nNúmero da matrícula: %d.", buscar->aluno.matricula);
 		printf ("\n\nCódigo do curso: %d.", buscar->aluno.codCurso);
@@ -118,5 +110,6 @@ void buscarnaFila(Fila *fila){
 		printf ("\n\nIdade: %d.", buscar->aluno.idade);
 		printf ("\n\nMédia geral de notas: %.2f.", buscar->aluno.coefMediaGeral);
 		return;
+		buscar = buscar -> prox; 
 	}
 }//Procedimento buscar na Fila
