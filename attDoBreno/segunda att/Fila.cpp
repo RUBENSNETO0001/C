@@ -2,46 +2,49 @@
 #include <stdlib.h>
 #include <string.h>
 
+int nextId = 1; // ComeÃ§a com 1, usado para IDs auto-incrementÃ¡veis
 #define MAX 100
 
 //Estrutura Aluno
 typedef struct {
+	int id; // Identificador Ãºnico do aluno (Sarah lavyne)
 	char nome[MAX];
 	int matricula;
 	int codCurso;
 	char tipoCurso[MAX];
 	int idade;
-	float coefMediaGeral; //Média geral de todas as notas
+	float coefMediaGeral; //Mï¿½dia geral de todas as notas
 } Aluno; //Fim da estrutura Aluno
 
 //Estrutura No da Fila
 typedef struct No {
 	Aluno aluno;
-	struct No* prox; //Próximo No da fila
+	struct No* prox; //Prï¿½ximo No da fila
 } No; //Fim da estrutura No
 
 //Estrutura da Fila
 typedef struct {
 	No* frente; //primeiro
-	No* tras; //último
+	No* tras; //ï¿½ltimo
 } Fila;//Fim da estrutura Fila
 
 //Procedimento inicializarFila()
 void inicializarFila(Fila* fila) {
 	fila->frente = NULL; //primeiro
-	fila->tras = NULL; //último
+	fila->tras = NULL; //ï¿½ltimo
 }//Fim do procedimento inicializarFila()
 
-//Função filaVazia()
+//Funï¿½ï¿½o filaVazia()
 int filaVazia (Fila* fila) {
 	return fila->frente == NULL;
-}//Fim da função filaVazia()
+}//Fim da funï¿½ï¿½o filaVazia()
 
 //Procedimento enfileirar()
 void enfileirar (Fila* fila, Aluno aluno) {
+	aluno.id = nextId++; // Define o ID do aluno e incrementa (sarah lavyne)
 	No* novoNo = (No*) malloc(sizeof(No));
 	if (novoNo == NULL) {
-		printf ("\n\nErro de alocação de memória!\n\n");
+		printf ("\n\nErro de alocaï¿½ï¿½o de memï¿½ria!\n\n");
 		exit(1);
 	}
 	novoNo->aluno = aluno;
@@ -53,18 +56,18 @@ void enfileirar (Fila* fila, Aluno aluno) {
 		fila->tras->prox = novoNo;
 	}
 	
-	fila->tras = novoNo; //último
+	fila->tras = novoNo; //ï¿½ltimo
 	printf ("\n\nNovo aluno enfileirado com sucesso!\n\n");
 }//Fim do procedimento enfileirar()
 
-//Função desenfileirar()
+//Funï¿½ï¿½o desenfileirar()
 Aluno desenfileirar (Fila* fila) {
 	if (filaVazia(fila)) {
-		printf ("\n\nA fila está vazia!\n\n");
+		printf ("\n\nA fila estï¿½ vazia!\n\n");
 		exit(1);
 	}
 	
-	No* temp = fila->frente; //Endereço do primeiro na fila
+	No* temp = fila->frente; //Endereï¿½o do primeiro na fila
 	Aluno alunoRemovido = temp->aluno; //Dados do primeiro - struct
 	fila->frente = temp->prox;
 	
@@ -74,25 +77,26 @@ Aluno desenfileirar (Fila* fila) {
 	
 	free(temp);
 	return alunoRemovido;		
-}//Fim da função desenfileirar()
+}//Fim da funï¿½ï¿½o desenfileirar()
 
 //Procedimento exibirFila()
 void exibirFila(Fila* fila) {
 	if (filaVazia(fila)) {
-		printf ("\n\nA fila está vazia!\n\n");
+		printf ("\n\nA fila estï¿½ vazia!\n\n");
 		return;
 	}
 	
 	No* atual = fila->frente;
-	printf ("\n\n\nRelatório da Fila");
+	printf ("\n\n\nRelatï¿½rio da Fila");
 	while (atual != NULL) {
 		Aluno alunoAtual = atual->aluno;
+		printf("\n\n\n\nID do aluno: %d.", alunoAtual.id);  //Sarah lavyne
 		printf ("\n\n\n\nNome do aluno: %s.", alunoAtual.nome);
-		printf ("\n\nNúmero da matrícula: %d.", alunoAtual.matricula);
-		printf ("\n\nCódigo do curso: %d.", alunoAtual.codCurso);
+		printf ("\n\nNï¿½mero da matrï¿½cula: %d.", alunoAtual.matricula);
+		printf ("\n\nCï¿½digo do curso: %d.", alunoAtual.codCurso);
 		printf ("\n\nTipo do curso: %s.", alunoAtual.tipoCurso);
 		printf ("\n\nIdade: %d.", alunoAtual.idade);
-		printf ("\n\nMédia geral de notas: %.2f.", alunoAtual.coefMediaGeral);
+		printf ("\n\nMï¿½dia geral de notas: %.2f.", alunoAtual.coefMediaGeral);
 		atual = atual->prox;
 	}
 }//Fim do procedimento exibirFila()
