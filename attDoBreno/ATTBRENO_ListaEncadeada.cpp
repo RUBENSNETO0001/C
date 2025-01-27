@@ -1,9 +1,8 @@
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-//Inï¿½cio do clear
+	#include <locale.h>
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include <string.h>
+//Início do clear
 void clear(void) {
     printf("\n\n\n");
     system("pause");
@@ -20,16 +19,16 @@ struct pessoa {
 
 typedef struct pessoa Pessoa;
 
-// Funï¿½ï¿½o criarLista()
+// Função criarLista()
 Pessoa* criarLista() {
     return NULL;
-} // Fim da funï¿½ï¿½o criarLista()
+} // Fim da função criarLista()
 
-// Funï¿½ï¿½o inserirLista() - inserir um novo elemento na lista
+// Função inserirLista() - inserir um novo elemento na lista
 Pessoa* inserirLista(Pessoa* p, int novoId, char *novoNome, float novoPeso, int novaIdade) {
     Pessoa* novo = (Pessoa*)malloc(sizeof(Pessoa));
     if (novo == NULL) {
-        printf("Erro ao alocar memï¿½ria! Nï¿½o serï¿½ possï¿½vel inserir novo elemento na lista!\n");
+        printf("Erro ao alocar memória! Não será possível inserir novo elemento na lista!\n");
         exit(1);
     }
     novo->id = novoId;
@@ -38,7 +37,7 @@ Pessoa* inserirLista(Pessoa* p, int novoId, char *novoNome, float novoPeso, int 
     novo->idade = novaIdade;
     novo->prox = p;
     return novo;
-} // Fim da funï¿½ï¿½o inserirLista()
+} // Fim da função inserirLista()
 
 // Procedimento imprimirLista()
 void imprimirLista(Pessoa* p) {
@@ -50,9 +49,9 @@ void imprimirLista(Pessoa* p) {
         printf("\nPeso da pessoa (kg): %.2f", pe->peso);
         printf("\nIdade da pessoa (anos completos): %d", pe->idade);
     }
-} // Fim da funï¿½ï¿½o imprimirLista()
+} // Fim da função imprimirLista()
 
-// Funï¿½ï¿½o buscaElemento()
+// Função buscaElemento()
 Pessoa* buscaElemento(Pessoa* p, int codBusca) {
     Pessoa* pe;
     for (pe = p; pe != NULL; pe = pe->prox) {
@@ -61,14 +60,14 @@ Pessoa* buscaElemento(Pessoa* p, int codBusca) {
         }
     }
     return NULL;
-} // Fim da funï¿½ï¿½o buscaElemento()
+} // Fim da função buscaElemento()
 
-// Funï¿½ï¿½o listaVazia()
+// Função listaVazia()
 int listaVazia(Pessoa* p) {
     return p == NULL; //Verdadeiro ou falso direto
 } // Fim da listaVazia()
 
-// Funï¿½ï¿½o removerElemento()
+// Função removerElemento()
 Pessoa* removerElemento(Pessoa* p, int codBusca) {
     Pessoa* pe = p;
     Pessoa* ant = NULL;
@@ -78,21 +77,21 @@ Pessoa* removerElemento(Pessoa* p, int codBusca) {
         pe = pe->prox;
     }
 
-    // Lista estï¿½ vazia ou o elemento com codBusca nï¿½o foi localizado
+    // Lista está vazia ou o elemento com codBusca não foi localizado
     if (pe == NULL)
         return p;
 
     // Elemento localizado na lista
-    if (ant == NULL) // Elemento removido ï¿½ o "primeiro"
+    if (ant == NULL) // Elemento removido é o "primeiro"
         p = pe->prox;
     else
         ant->prox = pe->prox;
 
     free(pe);
     return p;
-} // Fim da funï¿½ï¿½o removerElemento()
+} // Fim da função removerElemento()
 
-// Funï¿½ï¿½o liberarLista()
+// Função liberarLista()
 Pessoa* liberarLista(Pessoa* p) {
     Pessoa* pe = p;
     while (pe != NULL) {
@@ -101,9 +100,9 @@ Pessoa* liberarLista(Pessoa* p) {
         pe = p1;
     }
     return NULL;
-} // Fim da funï¿½ï¿½o liberarLista()
+} // Fim da função liberarLista()
 
-// Funï¿½ï¿½o compararListas() - Comparaï¿½ï¿½o com base no id
+// Função compararListas() - Comparação com base no id
 int compararListas(Pessoa* p1, Pessoa* p2) {
     Pessoa* pe1 = p1;
     Pessoa* pe2 = p2;
@@ -114,7 +113,7 @@ int compararListas(Pessoa* p1, Pessoa* p2) {
         pe2 = pe2->prox;
     }
     return pe1 == pe2; // NULL == NULL
-} // Fim da funï¿½ï¿½o compararListas()
+} // Fim da função compararListas()
 
 //parte do grupo
 //Rubens
@@ -215,7 +214,7 @@ Pessoa* buscaBinariaPorId(Pessoa* p, int id) {
 	Pessoa* inserirListaComAutoIncrement(Pessoa* p, char *novoNome, float novoPeso, int novaIdade) {
 	    Pessoa* novo = (Pessoa*)malloc(sizeof(Pessoa));
 	    if (novo == NULL) {
-	        printf("Erro ao alocar memï¿½ria!\n");
+	        printf("Erro ao alocar memória!\n");
 	        exit(1);
 	    }
 	
@@ -228,11 +227,11 @@ Pessoa* buscaBinariaPorId(Pessoa* p, int id) {
 	    return novo;
 	}
 	
-	// Funï¿½ï¿½o para editar um registro
+	// Função para editar um registro
 	void editarRegistro(Pessoa** p, int id) {
     Pessoa* pe = buscaElemento(*p, id);
     if (pe == NULL) {
-        printf("Registro com ID %d nï¿½o encontrado.\n", id);
+        printf("Registro com ID %d não encontrado.\n", id);
         return;
     }
 
@@ -276,7 +275,7 @@ void inicializarListas() {
 
 void adicionarNaLista(int indice, char* nome, float peso, int idade) {
     if (indice < 0 || indice >= MAX_LISTAS) {
-        printf("ï¿½ndice de lista invï¿½lido!\n");
+        printf("Índice de lista inválido!\n");
         return;
     }
     listas[indice] = inserirListaComAutoIncrement(listas[indice], nome, peso, idade);
@@ -285,151 +284,120 @@ void adicionarNaLista(int indice, char* nome, float peso, int idade) {
 
 void imprimirListaPorIndice(int indice) {
     if (indice < 0 || indice >= MAX_LISTAS) {
-        printf("ï¿½ndice de lista invï¿½lido!\n");
+        printf("Índice de lista inválido!\n");
         return;
     }
     imprimirLista(listas[indice]);
     clear();
 }
 
-void exibirMenuPrincipal() {
-    printf("\n=== Sistema de Gerenciamento ===\n");
-    printf("1. Adicionar pessoa em uma lista\n");
-    printf("2. Imprimir uma lista\n");
-    printf("3. Editar registro por ID\n");
-    printf("4. Buscar pessoa por ID\n");
-    printf("5. Remover pessoa por ID\n");
-    printf("6. Ordenar lista por ID\n");
-    printf("7. Comparar duas listas\n");
-    printf("8. Verificar repetiï¿½ï¿½o de ID\n");
-    printf("9. Liberar uma lista\n");
-    printf("10. Sair\n");
-    printf("Escolha uma opï¿½ï¿½o: ");
-}
-
 int main() {
-    setlocale(LC_ALL, "");
-    inicializarListas();
-
-    int opcao, indice, id, idade;
+    setlocale(LC_ALL, "Portuguese");
+    system("cls");
+    
+    inicializarListas(); // Inicializa as listas disponíveis
+    int opcao, listaIndice, idBusca;
     char nome[80];
     float peso;
+    int idade;
 
     do {
-        exibirMenuPrincipal();
+        printf("\n=== Menu Principal ===\n");
+        printf("1. Cadastrar nova pessoa\n");
+        printf("2. Visualizar lista\n");
+        printf("3. Editar registro\n");
+        printf("4. Remover registro\n");
+        printf("5. Sair\n");
+        printf("Escolha uma opção: ");
         scanf("%d", &opcao);
-        getchar(); // Limpar o buffer de entrada
+        getchar(); // Limpa o buffer do teclado após ler números
 
         switch (opcao) {
-            case 1: // Adicionar pessoa em uma lista
-                printf("Digite o ï¿½ndice da lista (0-%d): ", MAX_LISTAS - 1);
-                scanf("%d", &indice);
-                getchar(); // Limpar o buffer
+            case 1: // Cadastrar nova pessoa
+                printf("Digite o índice da lista (0 a %d): ", MAX_LISTAS - 1);
+                scanf("%d", &listaIndice);
+                getchar(); // Limpa o buffer do teclado
+                
+                if (listaIndice < 0 || listaIndice >= MAX_LISTAS) {
+                    printf("Índice inválido!\n");
+                    break;
+                }
+
                 printf("Digite o nome: ");
                 fgets(nome, sizeof(nome), stdin);
-                nome[strcspn(nome, "\n")] = '\0';
-                printf("Digite o peso: ");
+                nome[strcspn(nome, "\n")] = '\0'; // Remove o '\n' do final
+
+                printf("Digite o peso (kg): ");
                 scanf("%f", &peso);
+
                 printf("Digite a idade: ");
                 scanf("%d", &idade);
-                adicionarNaLista(indice, nome, peso, idade);
+                getchar(); // Limpa o buffer do teclado
+
+                adicionarNaLista(listaIndice, nome, peso, idade);
+                printf("Cadastro realizado com sucesso!\n");
                 break;
 
-            case 2: // Imprimir uma lista
-                printf("Digite o ï¿½ndice da lista (0-%d): ", MAX_LISTAS - 1);
-                scanf("%d", &indice);
-                imprimirListaPorIndice(indice);
-                break;
+            case 2: // Visualizar lista
+                printf("Digite o índice da lista para visualizar (0 a %d): ", MAX_LISTAS - 1);
+                scanf("%d", &listaIndice);
 
-            case 3: // Editar registro por ID
-                printf("Digite o ï¿½ndice da lista (0-%d): ", MAX_LISTAS - 1);
-                scanf("%d", &indice);
-                printf("Digite o ID da pessoa a ser editada: ");
-                scanf("%d", &id);
-                editarRegistro(&listas[indice], id);
-                break;
-
-            case 4: // Buscar pessoa por ID
-                printf("Digite o ï¿½ndice da lista (0-%d): ", MAX_LISTAS - 1);
-                scanf("%d", &indice);
-                printf("Digite o ID da pessoa a ser buscada: ");
-                scanf("%d", &id);
-                Pessoa* pessoa = buscaElemento(listas[indice], id);
-                if (pessoa) {
-                    printf("Pessoa encontrada: Nome: %s, Peso: %.2f, Idade: %d\n", pessoa->nome, pessoa->peso, pessoa->idade);
-                } else {
-                    printf("Pessoa com ID %d nï¿½o encontrada.\n", id);
+                if (listaIndice < 0 || listaIndice >= MAX_LISTAS) {
+                    printf("Índice inválido!\n");
+                    break;
                 }
-                clear();
+
+                imprimirListaPorIndice(listaIndice);
                 break;
 
-            case 5: // Remover pessoa por ID
-                printf("Digite o ï¿½ndice da lista (0-%d): ", MAX_LISTAS - 1);
-                scanf("%d", &indice);
-                printf("Digite o ID da pessoa a ser removida: ");
-                scanf("%d", &id);
-                listas[indice] = removerElemento(listas[indice], id);
-                printf("Pessoa removida com sucesso!\n");
-                clear();
-                break;
+            case 3: // Editar registro
+                printf("Digite o índice da lista (0 a %d): ", MAX_LISTAS - 1);
+                scanf("%d", &listaIndice);
 
-            case 6: // Ordenar lista por ID
-                printf("Digite o ï¿½ndice da lista (0-%d): ", MAX_LISTAS - 1);
-                scanf("%d", &indice);
-                listas[indice] = ordenarListaPorId(listas[indice]);
-                printf("Lista ordenada com sucesso!\n");
-                clear();
-                break;
-
-            case 7: // Comparar duas listas
-                printf("Digite os ï¿½ndices das duas listas para comparar (0-%d): ", MAX_LISTAS - 1);
-                int indice2;
-                scanf("%d %d", &indice, &indice2);
-                if (compararListas(listas[indice], listas[indice2])) {
-                    printf("As listas sï¿½o iguais.\n");
-                } else {
-                    printf("As listas sï¿½o diferentes.\n");
+                if (listaIndice < 0 || listaIndice >= MAX_LISTAS) {
+                    printf("Índice inválido!\n");
+                    break;
                 }
-                clear();
+
+                printf("Digite o ID do registro que deseja editar: ");
+                scanf("%d", &idBusca);
+                getchar(); // Limpa o buffer do teclado
+
+                editarRegistro(&listas[listaIndice], idBusca); // Passa ponteiro da lista
                 break;
 
-            case 8: // Verificar repetiï¿½ï¿½o de ID
-                printf("Digite o ï¿½ndice da lista (0-%d): ", MAX_LISTAS - 1);
-                scanf("%d", &indice);
-                printf("Digite o ID a verificar: ");
-                scanf("%d", &id);
-                if (verificarRepeticaoId(listas[indice], id)) {
-                    printf("O ID %d estï¿½ repetido na lista.\n", id);
-                } else {
-                    printf("O ID %d nï¿½o estï¿½ repetido.\n", id);
+            case 4: // Remover registro
+                printf("Digite o índice da lista (0 a %d): ", MAX_LISTAS - 1);
+                scanf("%d", &listaIndice);
+
+                if (listaIndice < 0 || listaIndice >= MAX_LISTAS) {
+                    printf("Índice inválido!\n");
+                    break;
                 }
-                clear();
+
+                printf("Digite o ID do registro que deseja remover: ");
+                scanf("%d", &idBusca);
+
+                listas[listaIndice] = removerElemento(listas[listaIndice], idBusca);
+                printf("Registro removido com sucesso!\n");
                 break;
 
-            case 9: // Liberar uma lista
-                printf("Digite o ï¿½ndice da lista (0-%d): ", MAX_LISTAS - 1);
-                scanf("%d", &indice);
-                listas[indice] = liberarLista(listas[indice]);
-                printf("Lista liberada com sucesso!\n");
-                clear();
-                break;
-
-            case 10: // Sair
-                printf("Saindo do programa...\n");
+            case 5: // Sair
+                printf("Encerrando o programa...\n");
+                for (int i = 0; i < MAX_LISTAS; i++) {
+                    listas[i] = liberarLista(listas[i]);
+                }
+                free(listas);
                 break;
 
             default:
-                printf("Opï¿½ï¿½o invï¿½lida!\n");
-                clear();
+                printf("Opção inválida! Tente novamente.\n");
+                break;
         }
-    } while (opcao != 10);
+    } while (opcao != 5);
 
-    // Liberar memï¿½ria das listas antes de encerrar
-    for (int i = 0; i < MAX_LISTAS; i++) {
-        liberarLista(listas[i]);
-    }
-    free(listas);
-
+    system("pause");
     return 0;
 }
+// Sarah Lavyne Melo Miranda
 
