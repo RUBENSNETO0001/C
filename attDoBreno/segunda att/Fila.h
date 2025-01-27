@@ -1,115 +1,138 @@
 #define MAX 100
 
-//Estrutura Aluno
+// Estrutura Aluno
 typedef struct {
-	char nome[MAX];
-	int matricula;
-	int codCurso;
-	char tipoCurso[MAX];
-	int idade;
-	float coefMediaGeral; //MÃ©dia geral de todas as notas
-} Aluno; //Fim da estrutura Aluno
+    char nome[MAX];
+    int matricula;
+    int codCurso;
+    char tipoCurso[MAX];
+    int idade;
+    float coefMediaGeral; // Média geral de todas as notas
+} Aluno;
 
-//Estrutura No da Fila
+// Estrutura No da Fila
 typedef struct No {
-	Aluno aluno;
-	struct No* prox; //PrÃ³ximo No da fila
-} No; //Fim da estrutura No
+    Aluno aluno;
+    struct No* prox; // Próximo No da fila
+} No;
 
-//Estrutura da Fila
+// Estrutura da Fila
 typedef struct {
-	No* frente; //primeiro
-	No* tras; //Ãºltimo
-} Fila;//Fim da estrutura Fila
+    No* frente; // primeiro
+    No* tras;   // último
+    int tamanho; // Controle do tamanho da fila
+} Fila;
 
-//Procedimento inicializarFila()
+// Procedimento para inicializar a fila
 void inicializarFila(Fila* fila) {
-	fila->frente = NULL; //primeiro
-	fila->tras = NULL; //Ãºltimo
-}//Fim do procedimento inicializarFila()
+    fila->frente = NULL;
+    fila->tras = NULL;
+    fila->tamanho = 0; // Inicializando o tamanho da fila
+}
 
-//FunÃ§Ã£o filaVazia()
-int filaVazia (Fila* fila) {
-	return fila->frente == NULL;
-}//Fim da funÃ§Ã£o filaVazia()
+// Função para verificar se a fila está vazia
+int filaVazia(Fila* fila) {
+    return fila->frente == NULL;
+}
 
-//Procedimento enfileirar()
-void enfileirar (Fila* fila, Aluno aluno) {
-	No* novoNo = (No*) malloc(sizeof(No));
-	if (novoNo == NULL) {
-		printf ("\n\n\nErro de alocaÃ§Ã£o de memÃ³ria!\n\n");
-		exit(1);
-	}
-	novoNo->aluno = aluno;
-	novoNo->prox = NULL;
-	
-	if (filaVazia(fila)) {
-		fila->frente = novoNo; //primeiro
-	} else {
-		fila->tras->prox = novoNo;
-	}
-	
-	fila->tras = novoNo; //Ãºltimo
-	printf ("\n\n\nNovo aluno enfileirado com sucesso!\n\n");
-}//Fim do procedimento enfileirar()
+// Procedimento para tratar erros de alocação
+void verificarAlocacao(void* ponteiro) {
+    if (ponteiro == NULL) {
+        printf("\nErro de alocação de memória!\n");
+        exit(1);
+    }
+}
 
-//FunÃ§Ã£o desenfileirar()
-Aluno desenfileirar (Fila* fila) {
-	if (filaVazia(fila)) {
-		printf ("\n\n\nA fila estÃ¡ vazia!\n\n");
-		exit(1);
-	}
-	
-	No* temp = fila->frente; //EndereÃ§o do primeiro na fila
-	Aluno alunoRemovido = temp->aluno; //Dados do primeiro - struct
-	fila->frente = temp->prox;
-	
-	if (fila->frente == NULL) {
-		fila->tras = NULL;
-	}
-	
-	free(temp);
-	return alunoRemovido;		
-}//Fim da funÃ§Ã£o desenfileirar()
+// Procedimento para enfileirar um aluno
+void enfileirar(Fila* fila, Aluno aluno) {
+    No* novoNo = (No*)malloc(sizeof(No));
+    verificarAlocacao(novoNo);
 
-//Procedimento exibirFila()
+    novoNo->aluno = aluno;
+    novoNo->prox = NULL;
+
+    if (filaVazia(fila)) {
+        fila->frente = novoNo; // primeiro
+    } else {
+        fila->tras->prox = novoNo;
+    }
+
+    fila->tras = novoNo; // último
+    fila->tamanho++; // Aumenta o tamanho da fila
+    printf("\nNovo aluno enfileirado com sucesso!\n");
+}
+
+// Função para desenfileirar um aluno
+Aluno desenfileirar(Fila* fila) {
+    if (filaVazia(fila)) {
+        printf("\nA fila está vazia!\n");
+        exit(1);
+    }
+
+    No* temp = fila->frente; // Endereço do primeiro na fila
+    Aluno alunoRemovido = temp->aluno; // Dados do primeiro - struct
+    fila->frente = temp->prox;
+
+    if (fila->frente == NULL) {
+        fila->tras = NULL;
+    }
+
+    free(temp);
+    fila->tamanho--; // Diminui o tamanho da fila
+    return alunoRemovido;
+}
+
+// Procedimento para exibir a fila
 void exibirFila(Fila* fila) {
-	if (filaVazia(fila)) {
-		printf ("\n\n\nA fila estÃ¡ vazia!\n\n");
-		return;
-	}
-	
-	No* atual = fila->frente;
-	printf ("\n\n\n\tRelatÃ³rio da Fila");
-	while (atual != NULL) {
-		Aluno alunoAtual = atual->aluno;
-		printf ("\n\n\n\nNome do aluno: %s.", alunoAtual.nome);
-		printf ("\n\nNÃºmero da matrÃ­cula: %d.", alunoAtual.matricula);
-		printf ("\n\nCÃ³digo do curso: %d.", alunoAtual.codCurso);
-		printf ("\n\nTipo do curso: %s.", alunoAtual.tipoCurso);
-		printf ("\n\nIdade: %d.", alunoAtual.idade);
-		printf ("\n\nMÃ©dia geral de notas: %.2f.", alunoAtual.coefMediaGeral);
-		atual = atual->prox;
-	}
-}//Fim do procedimento exibirFila()
+    if (filaVazia(fila)) {
+        printf("\nA fila está vazia!\n");
+        return;
+    }
 
-//Rubens
-//Procedimento buscar na Fila
-void buscarnaFila(Fila *fila, int buscar){
-	if(filaVazia(fila)){
-		printf("\n\n\nA fila esta vazia!!");
-		return;
-	}
-	No *buscar = fila->frente; // Ponteiro para percorrer a fila
-	printf("\n\nExibindo os alunos na fila:\n");
-	while(buscar != NULL){
-		printf ("\n\n\n\nNome do aluno: %s.", buscar->aluno.nome);
-		printf ("\n\nNÃºmero da matrÃ­cula: %d.", buscar->aluno.matricula);
-		printf ("\n\nCÃ³digo do curso: %d.", buscar->aluno.codCurso);
-		printf ("\n\nTipo do curso: %s.", buscar->aluno.tipoCurso);
-		printf ("\n\nIdade: %d.", buscar->aluno.idade);
-		printf ("\n\nMÃ©dia geral de notas: %.2f.", buscar->aluno.coefMediaGeral);
-		return;
-		buscar = buscar -> prox; 
-	}
-}//Procedimento buscar na Fila
+    No* atual = fila->frente;
+    printf("\nRelatório da Fila:");
+    while (atual != NULL) {
+        Aluno alunoAtual = atual->aluno;
+        printf("\n---------------------------");
+        printf("\nNome do aluno: %s", alunoAtual.nome);
+        printf("\nNúmero da matrícula: %d", alunoAtual.matricula);
+        printf("\nCódigo do curso: %d", alunoAtual.codCurso);
+        printf("\nTipo do curso: %s", alunoAtual.tipoCurso);
+        printf("\nIdade: %d", alunoAtual.idade);
+        printf("\nMédia geral de notas: %.2f", alunoAtual.coefMediaGeral);
+        atual = atual->prox;
+    }
+
+    printf("\n---------------------------\n");
+}
+
+// Função para buscar na fila por posição
+void buscarnaFila(Fila* fila, int posicao) {
+    if (posicao < 1 || posicao > fila->tamanho) {
+        printf("\nPosição inválida!\n");
+        return;
+    }
+
+    No* atual = fila->frente;
+    int i = 1;
+    while (atual != NULL && i < posicao) {
+        atual = atual->prox;
+        i++;
+    }
+
+    if (atual != NULL) {
+        printf("\nAluno na posição %d:", posicao);
+        printf("\nNome: %s", atual->aluno.nome);
+        printf("\nMatrícula: %d", atual->aluno.matricula);
+        printf("\nCódigo do Curso: %d", atual->aluno.codCurso);
+        printf("\nTipo do Curso: %s", atual->aluno.tipoCurso);
+        printf("\nIdade: %d", atual->aluno.idade);
+        printf("\nMédia: %.2f", atual->aluno.coefMediaGeral);
+    }
+}
+
+// Função para limpar o buffer de entrada
+void limparBuffer() {
+    while (getchar() != '\n');
+}
+

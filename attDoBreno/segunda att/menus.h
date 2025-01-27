@@ -1,21 +1,15 @@
-//Procedimento clear()
-void clear (void) {
-	printf ("\n\n\n");
-	system ("Pause");
-	system ("cls");
-}//Fim do procedimento clear()
-
-//Fun√ß√£o menu()
+// FunÁ„o menu
 int menu(void) {
-	int op;
-	printf ("\n\n\n\tMenu");
-	printf ("\n\n1 - Enfileirar Cadastro de Aluno");
-	printf ("\n\n2 - Desenfileirar Cadastro de Aluno");
-	printf ("\n\n3 - Exibir Fila de Cadastros de Alunos");
-	printf ("\n\n4 - Buscar Fila de Cadastros de Alunos");
-	printf ("\n\n0 - Sair");
-	
-	printf ("\n\n\nInforme a op√ß√£o desejada: ");
-	scanf ("%d", &op);
-	return op;
-}//Fim da fun√ß√£o menu()
+    int op;
+    printf("\n\n\n\tMenu");
+    printf("\n\n1 - Enfileirar Cadastro de Aluno");
+    printf("\n2 - Desenfileirar Cadastro de Aluno");
+    printf("\n3 - Exibir Fila de Cadastros de Alunos");
+    printf("\n4 - Buscar Fila de Cadastros de Alunos");
+    printf("\n0 - Sair");
+
+    printf("\n\nInforme a opÁ„o desejada: ");
+    scanf("%d", &op);
+    return op;
+}
+
