@@ -116,39 +116,9 @@ Livro carregarLivro(void) {
 }//Fim da função carregarLivro
 
 //Função buscarPilha()
-void buscarPilha(Pilha *p){
-	printf ("\n\n\tCadastro de Livro - buscarPilha");
-	if(pilhaVazia(p)){
-		printf("\n\nPilha Está vazia");
-		return;
-	}
-	p -> Livro[(p->topo)--];
-	
-	if(buscar!=NULL){
-		printf ("\n\n\n\nCódigo: %d.", p->livros[p].codLivro);
-		printf ("\n\nNome: %s",p->livros[p].nome);
-		printf ("\n\nISSN: %s", p->livros[p].issn);
-		printf ("\n\nAutor: %s", p->livros[p].autor);
-		printf ("\n\nQuantidade de Páginas: %d", p->livros[p].quantPaginas);
-		printf ("\n\nPreço atual: R$ %.2f", p->livros[p].preco);
-		return;
-	}
-	
-}
 
 //Função compararElementos() - com base no código
-Livro compararElementos(Pilha *p){
-	if(pilhaVazia(P)){
-		printf("\n\nPilha está vazia!!");
-		return;
-	}
-	
-	for(int i = 0; i <= p->livros[(p->topo)--]; i++){
-		if(p->topo=p->livros.codLivro == p->livros.codLivro){
-			printf("\n\nLivro repetido!!");
-			return p->livros[(p->topo)]=Livro;
-		}
-	}
-}
+
+
 
 
